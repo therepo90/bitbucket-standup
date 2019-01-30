@@ -1,12 +1,12 @@
 {
-  "name": "bitbucket-api",
+  "name": "bitbucket-standup",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "start": "node index.js"
   },
-  "author": "Tomasz Sz",
+  "author": "therepo90",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.11",
