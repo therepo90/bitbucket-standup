@@ -43,7 +43,7 @@ async function run() {
         let result = `\n${lastTime}:`;
         Object.entries(groupBy(jsonBody.values, 'destination.repository.name')).forEach(([name, prs]) => {
             result += `\n**[${name}]**\n`;
-            result += prs.map(pr => `\t-${pr.title}`).join('\n');
+            result += prs.map(pr => ` -${pr.title}`).join('\n');
         });
         console.log(result);
     });
