@@ -40,9 +40,9 @@ async function run() {
         const jsonBody = JSON.parse(body);
         //console.dir(jsonBody); // Print the HTML for the Google homepage.
         //console.log('Result');
-        let result = `\n${lastTime}:\n`;
+        let result = `\n${lastTime}:`;
         Object.entries(groupBy(jsonBody.values, 'destination.repository.name')).forEach(([name, prs]) => {
-            result += `**[${name}]**\n`;
+            result += `\n**[${name}]**\n`;
             result += prs.map(pr => `\t-${pr.title}`).join('\n');
         });
         console.log(result);
