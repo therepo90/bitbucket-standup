@@ -11,7 +11,7 @@ const {username, password} = require('./basic-creds');
 const request = require('request');
 const moment = require('moment');
 
-moment.locale('en');
+moment.locale('pl');
 const lastTime = 'Ostatnio';
 const baseUrl = 'https://api.bitbucket.org/2.0';
 async function run() {
