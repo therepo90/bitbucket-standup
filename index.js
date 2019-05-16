@@ -13,6 +13,7 @@ const moment = require('moment');
 
 moment.locale('pl');
 const lastTime = 'Ostatnio';
+const nextTime= 'Dziś';
 const baseUrl = 'https://api.bitbucket.org/2.0';
 async function run() {
     const today = moment();
@@ -40,13 +41,20 @@ async function run() {
         const jsonBody = JSON.parse(body);
         //console.dir(jsonBody); // Print the HTML for the Google homepage.
         //console.log('Result');
-        let result = `\n${lastTime}:`;
+        let result = `\n${lastTime}:\n`;
         Object.entries(groupBy(jsonBody.values, 'destination.repository.name')).forEach(([name, prs]) => {
             result += `\n**[${name}]**\n`;
-            result += prs.map(pr => ` -${pr.title}`).join('\n');
+            result += prs.map(pr => {
+                const icon = pr.state === 'MERGED' ?  '✓' : '◷';
+                return `  ${icon}${pr.title}`;
+            }).join('\n');
+            result+='\n';
         });
+        result+= `\n${nextTime}:\n`;
         console.log(result);
     });
+
+    // todo pr status(merged ?)
 };
 
 run();
