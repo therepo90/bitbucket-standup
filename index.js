@@ -1,6 +1,5 @@
 const {groupBy} = require("lodash");
 
-const config = require('./creds');
 const {username, password} = require('./basic-creds');
 /**
  {
